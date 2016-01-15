@@ -1,5 +1,6 @@
 
 require 'Rebay'
+require 'CGI'
 
 class EbayUtils
 
@@ -32,8 +33,8 @@ class EbayUtils
     item_filter_string
   end
 
-  def build_url_parameters(keyword_string, aspect_array, item_filter_hash, sort_order)
-    param_string = "&keywords=#{keyword_string}&sortOrder=#{sort_order}"
+  def build_url_parameters(keyword_string, aspect_array, item_filter_hash, sort_order, page_number)
+    param_string = "&keywords=#{keyword_string}&sortOrder=#{sort_order}&paginationInput.pageNumber=#{page_number}"
     param_string += build_certification_aspect_url(aspect_array)
     param_string += build_item_filter_url(item_filter_hash)
     param_string
@@ -44,10 +45,12 @@ class EbayUtils
     "#{base_url}?OPERATION-NAME=#{service_name}&SERVICE-VERSION=1.9.0&SECURITY-APPNAME=#{app_id}&RESPONSE-DATA-FORMAT=JSON&REST-PAYLOAD"
   end
 
-  def do_ebay_query(app_id, keyword_string, aspect_array, item_filter_hash, sort_order = 'EndTimeSoonest')
+  def do_ebay_query(app_id, keyword_string, aspect_array, item_filter_hash, page_number, sort_order = 'EndTimeSoonest')
     full_url = build_base_request_url("http://svcs.ebay.com/services/search/FindingService/v1", "findItemsAdvanced", app_id)
-    param_url = build_url_parameters(keyword_string, aspect_array, item_filter_hash, sort_order)
+    param_url = build_url_parameters(keyword_string, aspect_array, item_filter_hash, sort_order, page_number)
     param_url = URI.escape(param_url)
+    # param_url = CGI.escape(param_url)
+    # puts param_url
     full_url += param_url
     response = Rebay::Response.new(JSON.parse(Net::HTTP.get_response(URI.parse(full_url)).body))
     response.trim(:findItemsAdvancedResponse)

@@ -47,16 +47,16 @@ RSpec.describe EbayUtils do
       item_filters = { "ListingType" => ["Auction"] }
       cert_values = [ {:Certification =>"NGC" }]
       keywords = "Indian Cent"
-      url_params = ebay_utils.build_url_parameters("Indian Cent", cert_values, item_filters, "EndTimeSoonest")
-      expected_string = "&keywords=Indian Cent&sortOrder=EndTimeSoonest"
+      url_params = ebay_utils.build_url_parameters("Indian Cent", cert_values, item_filters, "EndTimeSoonest", 1)
+      expected_string = "&keywords=Indian Cent&sortOrder=EndTimeSoonest&paginationInput.pageNumber=1"
       expected_string += "&aspectFilter(0).aspectName=Certification&aspectFilter(0).aspectValueName=NGC"
       expected_string += "&itemFilter(0).name=ListingType&itemFilter(0).value(0)=Auction"
       expect(url_params).to eql(expected_string)
     end
 
     it "always adds keyword and sortOrder" do
-      url_params = ebay_utils.build_url_parameters("Indian Cent", [], {}, "EndTimeSoonest")
-      expected_string = "&keywords=Indian Cent&sortOrder=EndTimeSoonest"
+      url_params = ebay_utils.build_url_parameters("Indian Cent", [], {}, "EndTimeSoonest", 1)
+      expected_string = "&keywords=Indian Cent&sortOrder=EndTimeSoonest&paginationInput.pageNumber=1"
       expect(url_params).to eql(expected_string)
     end
   end
