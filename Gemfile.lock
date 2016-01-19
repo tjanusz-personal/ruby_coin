@@ -1,8 +1,34 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    axlsx (2.0.1)
+      htmlentities (~> 4.3.1)
+      nokogiri (>= 1.4.1)
+      rubyzip (~> 1.0.0)
+    celluloid (0.17.3)
+      celluloid-essentials
+      celluloid-extras
+      celluloid-fsm
+      celluloid-pool
+      celluloid-supervision
+      timers (>= 4.1.1)
+    celluloid-essentials (0.20.5)
+      timers (>= 4.1.1)
+    celluloid-extras (0.20.5)
+      timers (>= 4.1.1)
+    celluloid-fsm (0.20.5)
+      timers (>= 4.1.1)
+    celluloid-pool (0.20.5)
+      timers (>= 4.1.1)
+    celluloid-supervision (0.20.5)
+      timers (>= 4.1.1)
     diff-lcs (1.2.5)
+    hitimes (1.2.3)
+    htmlentities (4.3.4)
     json (1.8.3)
+    mini_portile2 (2.1.0)
+    nokogiri (1.6.8.rc2-x64-mingw32)
+      mini_portile2 (~> 2.1.0)
     rebay (1.2.0)
       json
     rspec (3.4.0)
@@ -18,11 +44,16 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.4.0)
     rspec-support (3.4.1)
+    rubyzip (1.0.0)
+    timers (4.1.1)
+      hitimes
 
 PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
+  axlsx
+  celluloid
   rebay
   rspec
 

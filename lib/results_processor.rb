@@ -1,8 +1,13 @@
 
 class ResultsProcessor
 
-  def filter_results(coin_type, results, years_needed_array, skip_words_array, max_price)
+  def filter_results(coin_type, response, years_needed_array, skip_words_array, max_price)
     result_array = []
+    results = response.response["searchResult"]
+    if results.nil?
+        puts "ERROR INVOKING EBAY for #{coin_type}!  #{response.response}"
+        return result_array
+    end
     return result_array if results.nil?
     items = results[:item.to_s]
     items.each do |item|

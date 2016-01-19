@@ -1,6 +1,9 @@
 require './lib/results_processor'
+require 'celluloid'
 
 class PullJeffersonBIN
+
+  include Celluloid
 
   @@item_filter_hash = { :ListingType => ["FixedPrice"] }
   @@years_needed = ["1939", "1952", "1953", "1954", "1955", "1958", "1961", "1964", "1963", "1976", "1978", "1982", "1983",
@@ -13,9 +16,8 @@ class PullJeffersonBIN
   def do_pull(app_id, page_number)
     ebay_utils = EbayUtils.new
     response = ebay_utils.do_ebay_query(app_id, "Jefferson Nickels", @@aspect_filters, @@item_filter_hash, page_number, "PricePlusShippingLowest")
-    search_res = response.response["searchResult"]
     results_processor = ResultsProcessor.new
-    filtered_results = results_processor.filter_results(@@coin_type, search_res, @@years_needed, @@skip_words, 35)
+    filtered_results = results_processor.filter_results(@@coin_type, response, @@years_needed, @@skip_words, 35)
     # puts filtered_results
     filtered_results
   end

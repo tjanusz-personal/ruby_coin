@@ -49,8 +49,6 @@ class EbayUtils
     full_url = build_base_request_url("http://svcs.ebay.com/services/search/FindingService/v1", "findItemsAdvanced", app_id)
     param_url = build_url_parameters(keyword_string, aspect_array, item_filter_hash, sort_order, page_number)
     param_url = URI.escape(param_url)
-    # param_url = CGI.escape(param_url)
-    # puts param_url
     full_url += param_url
     response = Rebay::Response.new(JSON.parse(Net::HTTP.get_response(URI.parse(full_url)).body))
     response.trim(:findItemsAdvancedResponse)

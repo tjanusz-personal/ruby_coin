@@ -43,16 +43,19 @@ RSpec.describe ResultsProcessor do
     let(:expected_hash) { {:type => "Indian", :current_price => 50, :view_item_url => "http://testURL.com", :title => "Indian Cent 1901", :end_time => now} }
 
     it "returns array of filtered result hashes" do
-      search_res = { "item" => [ebay_result]}
+      item_array = [ebay_result, ebay_result]
+      raw_res = { "searchResult" => { "item" => item_array }}
+      search_res = Rebay::Response.new(raw_res)
       actual_results = processor.filter_results("Indian", search_res, years_needed, skip_words, 100)
-      expect(actual_results).to eql([expected_hash])
+      expect(actual_results).to eql([expected_hash, expected_hash])
     end
 
     it "filters out items to be skipped due to skip_words or invalid date needed" do
       ebay_result1 = ebay_result
       ebay_result2 = ebay_result.clone  ## clone the same item and just manipulate the title to be bad
       ebay_result2["title"] = "Indian Cent 1901 Cleaned"
-      search_res = { "item" => [ebay_result1, ebay_result2] }
+      raw_res = { "searchResult" => { "item" => [ebay_result1, ebay_result2] }}
+      search_res = Rebay::Response.new(raw_res)
       actual_results = processor.filter_results("Indian", search_res, years_needed, skip_words, 100)
       expect(actual_results).to eql([expected_hash])
     end
