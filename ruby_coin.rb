@@ -12,7 +12,7 @@ require './lib/excel_writer'
 
 puts "Start load all coins"
 
-app_id = 'TimothyJ-dd41-4e41-92c4-fdfde088137d'
+app_id = ARGV.first
 
 all_results = []
 all_results.push(PullIndian.new.do_pull(app_id))
