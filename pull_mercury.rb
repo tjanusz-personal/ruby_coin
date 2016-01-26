@@ -7,7 +7,7 @@ class PullMercury
 
   @@item_filter_hash = { :ListingType => ["Auction", "AuctionWithBIN"] }
   @@years_needed = ["1931", "1932", "1933", "1934", "1935", "1936", "1937", "1938", "1939"];
-  @@skip_words = ["Scratched", "Damaged", "Scratch", "Damage"]
+  @@skip_words = ["Scratched", "Scratches", "Spot Removed", "Cleaning", "Cleaned", "Altered Color", "Damage"]
   @@coin_type = "Mercury"
   @@aspect_filters = [ {:Certification => "NGC"}, {:Certification => "PCGS"}, {:Grade => "MS 66"}]
 

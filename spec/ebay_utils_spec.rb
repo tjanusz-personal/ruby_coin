@@ -20,7 +20,7 @@ RSpec.describe EbayUtils do
         cert_values = [ {:Certification => "NGC"}, {:Certification => "PCGS"}]
         actual_string = ebay_utils.build_certification_aspect_url(cert_values)
         expected_string = "&aspectFilter(0).aspectName=Certification&aspectFilter(0).aspectValueName=NGC"
-        expected_string += "&aspectFilter(1).aspectName=Certification&aspectFilter(1).aspectValueName=PCGS"
+        expected_string << "&aspectFilter(1).aspectName=Certification&aspectFilter(1).aspectValueName=PCGS"
         expect(actual_string).to eql(expected_string)
       end
   end
@@ -37,7 +37,7 @@ RSpec.describe EbayUtils do
       item_filters = { "ListingType" => ["Auction", "AuctionWithBIN"] }
       actual_string = ebay_utils.build_item_filter_url(item_filters)
       expected_string = "&itemFilter(0).name=ListingType&itemFilter(0).value(0)=Auction"
-      expected_string += "&itemFilter(0).value(1)=AuctionWithBIN"
+      expected_string << "&itemFilter(0).value(1)=AuctionWithBIN"
       expect(actual_string).to eql(expected_string)
     end
   end
@@ -49,8 +49,8 @@ RSpec.describe EbayUtils do
       keywords = "Indian Cent"
       url_params = ebay_utils.build_url_parameters("Indian Cent", cert_values, item_filters, "EndTimeSoonest", 1)
       expected_string = "&keywords=Indian Cent&sortOrder=EndTimeSoonest&paginationInput.pageNumber=1"
-      expected_string += "&aspectFilter(0).aspectName=Certification&aspectFilter(0).aspectValueName=NGC"
-      expected_string += "&itemFilter(0).name=ListingType&itemFilter(0).value(0)=Auction"
+      expected_string << "&aspectFilter(0).aspectName=Certification&aspectFilter(0).aspectValueName=NGC"
+      expected_string << "&itemFilter(0).name=ListingType&itemFilter(0).value(0)=Auction"
       expect(url_params).to eql(expected_string)
     end
 

@@ -8,9 +8,9 @@ class EbayUtils
     aspect_string = ""
     counter = 0
     aspect_array.each do |eachItem|
-      aspect_string += "&"
-      aspect_string += "aspectFilter(#{counter}).aspectName=#{eachItem.keys.first}"
-      aspect_string += "&aspectFilter(#{counter}).aspectValueName=#{eachItem.values.first}"
+      aspect_string << "&"
+      aspect_string << "aspectFilter(#{counter}).aspectName=#{eachItem.keys.first}"
+      aspect_string << "&aspectFilter(#{counter}).aspectValueName=#{eachItem.values.first}"
       counter += 1
     end
     aspect_string
@@ -21,11 +21,11 @@ class EbayUtils
     item_counter = 0
 
     item_filter_hash.each do |filter_name, filter_values|
-      item_filter_string += "&"
-      item_filter_string += "itemFilter(#{item_counter}).name=#{filter_name}"
+      item_filter_string << "&"
+      item_filter_string << "itemFilter(#{item_counter}).name=#{filter_name}"
       value_counter = 0
       filter_values.each do |filter_value|
-          item_filter_string += "&itemFilter(#{item_counter}).value(#{value_counter})=#{filter_value}"
+          item_filter_string << "&itemFilter(#{item_counter}).value(#{value_counter})=#{filter_value}"
           value_counter += 1
       end
       item_counter += 1
@@ -35,8 +35,8 @@ class EbayUtils
 
   def build_url_parameters(keyword_string, aspect_array, item_filter_hash, sort_order, page_number)
     param_string = "&keywords=#{keyword_string}&sortOrder=#{sort_order}&paginationInput.pageNumber=#{page_number}"
-    param_string += build_certification_aspect_url(aspect_array)
-    param_string += build_item_filter_url(item_filter_hash)
+    param_string << build_certification_aspect_url(aspect_array)
+    param_string << build_item_filter_url(item_filter_hash)
     param_string
   end
 

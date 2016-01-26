@@ -54,6 +54,7 @@ PLATFORMS
 DEPENDENCIES
   axlsx
   celluloid
+  nokogiri
   rebay
   rspec
 
