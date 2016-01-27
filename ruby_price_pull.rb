@@ -1,5 +1,6 @@
 
 require './lib/numis_screen_scraper'
+require './lib/fmv_excel_writer'
 
 puts "Start to scrape price information from NUMIS"
 
@@ -27,12 +28,8 @@ all_futures.keys.each do |key|
   coin_results[key] = all_futures[key].value
 end
 
-# puts coin_results[:Jefferson]
-# puts coin_results[:Kennedy]
-# puts coin_results[:Mercury]
-# puts coin_results[:Liberty]
-puts coin_results[:Buffalo]
-
+fmv_excel_writer = FmvExcelWriter.new
+fmv_excel_writer.build_excel_file("CurrentFMVValues.xlsx", coin_results)
 # TODO: figure out how to deal with Indians since this HTML page is different than all the others!
 # Indian Cents MS61-MS70
 # page_name = 'http://www.numismedia.com/cgi-bin/coinpricesfmv.cgi?script=indcnt&searchtype=any&searchtext=fmv&search2=any'
