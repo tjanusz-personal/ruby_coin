@@ -1,3 +1,4 @@
+
 def do_calc(number)
   case 0
     when number % 15
@@ -24,7 +25,7 @@ def do_sort_test(the_hash)
   key_array
 end
 
-the_hash = { abc: "hello", 'another_key' => 123, 4567 => 'third'}
-puts do_sort_test(the_hash)
+# the_hash = { abc: "hello", 'another_key' => 123, 4567 => 'third'}
+# puts do_sort_test(the_hash)
 # ['abc', "4567", "another_key"]
 # (0..100).each {|number| puts do_calc2(number)}
