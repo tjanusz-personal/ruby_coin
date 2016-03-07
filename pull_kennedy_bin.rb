@@ -8,7 +8,7 @@ class PullKennedyBIN
   @@item_filter_hash = { :ListingType => ["FixedPrice"] }
   @@years_needed = ["1971", "1973", "1974", "1975", "1978", "1980", "1981", "1982", "1983", "1984", "1997", "2008"]
   @@skip_words = ["1971 D", "1971-D", "1973 D", "1973-D", "2008 P", "2008-P", "1980-P", "1971 S", "1978-P",
-    "1974-D", "1997 P", "1980 P", "1978 KENN", "1981S"]
+    "1974-D", "1997 P", "1980 P", "1978 KENN", "1981S", "1981 P", "1997-P"]
   @@coin_type = "KennedyBIN"
   @@aspect_filters = [ {:Certification => "NGC"}, {:Certification => "PCGS"}, {:Grade => "MS 66"}]
 
