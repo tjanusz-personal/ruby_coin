@@ -6,8 +6,8 @@ class PullKennedy
   include Celluloid
 
   @@item_filter_hash = { :ListingType => ["Auction", "AuctionWithBIN"] }
-  @@years_needed = ["1971", "1973", "1974", "1975", "1978", "1981", "1982", "1983", "1984", "1997", "2008"];
-  @@skip_words = ["1971-D", "1974-D", "1980-P", "1983-D", "1984 P", "1981S", "1981 P", "1997-P", "1971 D", "2008-P"];
+  @@years_needed = ["1971", "1973", "1974", "1978", "1981", "1982", "1983", "1984", "1997"];
+  @@skip_words = ["1971-D", "1974-D", "1980-P", "1983-D", "1984 P", "1981S", "1981 P", "1997-P", "1971 D"];
   @@coin_type = "Kennedy"
   @@aspect_filters = [ {:Certification => "NGC"}, {:Certification => "PCGS"}, {:Grade => "MS 66"}]
 
