@@ -23,19 +23,21 @@ GEM
     celluloid-supervision (0.20.5)
       timers (>= 4.1.1)
     diff-lcs (1.2.5)
-    hitimes (1.2.3)
+    hitimes (1.2.4)
     htmlentities (4.3.4)
     json (1.8.3)
-    mini_portile2 (2.1.0)
-    nokogiri (1.6.8.rc2-x64-mingw32)
-      mini_portile2 (~> 2.1.0)
+    mini_portile2 (2.0.0)
+    nokogiri (1.6.7.2)
+      mini_portile2 (~> 2.0.0.rc2)
+    nokogiri (1.6.7.2-x64-mingw32)
+      mini_portile2 (~> 2.0.0.rc2)
     rebay (1.2.0)
       json
     rspec (3.4.0)
       rspec-core (~> 3.4.0)
       rspec-expectations (~> 3.4.0)
       rspec-mocks (~> 3.4.0)
-    rspec-core (3.4.1)
+    rspec-core (3.4.4)
       rspec-support (~> 3.4.0)
     rspec-expectations (3.4.0)
       diff-lcs (>= 1.2.0, < 2.0)
@@ -49,14 +51,15 @@ GEM
       hitimes
 
 PLATFORMS
+  ruby
   x64-mingw32
 
 DEPENDENCIES
   axlsx
   celluloid
   nokogiri
-  rebay
+  rebay (~> 1.2)
   rspec
 
 BUNDLED WITH
-   1.11.2
+   1.12.1

@@ -1,6 +1,6 @@
 
-require 'Rebay'
-require 'CGI'
+require 'rebay'
+require 'cgi'
 
 class EbayUtils
 
