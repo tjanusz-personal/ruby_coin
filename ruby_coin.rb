@@ -21,7 +21,10 @@ all_futures = []
 all_futures.push(PullIndian.new.future.do_pull(app_id))
 all_futures.push(PullBuffalo.new.future.do_pull(app_id))
 all_futures.push(PullJefferson.new.future.do_pull(app_id))
-all_futures.push(PullKennedy.new.future.do_pull(app_id))
+1.upto(1) do |page_number|
+  all_futures.push(PullKennedy.new.future.do_pull(app_id, page_number))
+end
+
 all_futures.push(PullLiberty.new.future.do_pull(app_id))
 all_futures.push(PullMercury.new.future.do_pull(app_id))
 1.upto(5) do |page_number|
