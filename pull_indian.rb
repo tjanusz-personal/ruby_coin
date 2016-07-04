@@ -10,7 +10,7 @@ class PullIndian
     "1886","1887", "1889", "1891", "1894", "1895", "1896", "1897", "1898", "1900", "1901", "1902",
     "1903", "1904", "1905", "1906"]
   @@skip_words = ["Scratched", "Scratches", "Spot Removed", "Cleaning", "Cleaned", "Altered Color", "Damage",
-    "Uncirculated Details", "AU Details", "VF Details", "UNC Details"]
+    "Uncirculated Details", "AU Details", "VF Details", "UNC Details", "F12", "XF-", "F15", "xf details"]
   @@coin_type = "Indian"
   @@aspect_filters = [{:Certification => "NGC"}, {:Certification => "PCGS"}]
 
