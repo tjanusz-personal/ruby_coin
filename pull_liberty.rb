@@ -6,7 +6,7 @@ class PullLiberty
   include Celluloid
 
   @@item_filter_hash = { :ListingType => ["Auction", "AuctionWithBIN"] }
-  @@years_needed = ["1884", "1885", "1886", "1888", "1892", "1894", "1895"]
+  @@years_needed = ["1885", "1886", "1888", "1892", "1894", "1895"]
   @@skip_words = ["Scratched", "Scratches", "Spot Removed", "Cleaning", "Cleaned", "Altered Color", "Damage",
     "VF", "VG", "FR-", "G-0", "AG03", "G6", "G4", "Fair 2", "Good Details"]
   @@coin_type = "Liberty"

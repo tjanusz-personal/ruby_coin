@@ -6,9 +6,9 @@ class PullMercury
   include Celluloid
 
   @@item_filter_hash = { :ListingType => ["Auction", "AuctionWithBIN"] }
-  @@years_needed = ["1931", "1932", "1933", "1934", "1935", "1936", "1937", "1938", "1939"];
+  @@years_needed = ["1931", "1932", "1933", "1934", "1935", "1936", "1938", "1939"];
   @@skip_words = ["Scratched", "Scratches", "Spot Removed", "Cleaning", "Cleaned", "Altered Color", "Damage",
-    "1939 D", "1939-P", "1938-S", "1938 S", "1938 D", "1938-D", "1937-P", "1935-P", "1937 D", "1937-D"]
+    "1939 D", "1939-P", "1938-S", "1938 S", "1938 D", "1938-D", "1935-P", "1939-D"]
   @@coin_type = "Mercury"
   @@aspect_filters = [ {:Certification => "NGC"}, {:Certification => "PCGS"}, {:Grade => "MS 66"}]
 

@@ -6,8 +6,10 @@ class PullBuffalo
   include Celluloid
 
   @@item_filter_hash = { :ListingType => ["Auction", "AuctionWithBIN"] }
-  @@years_needed = ["1920", "1921", "1922", "1923", "1924", "1925, 1926", "1927", "1929", "1931", "1932", "1933", "1934", "1935", "1936"]
-  @@skip_words = ["Scratched", "Scratches", "Spot Removed", "Cleaning", "Cleaned", "Altered Color", "Damage"]
+  @@years_needed = ["1920", "1921", "1922", "1923", "1924", "1925, 1926", "1927", "1929", "1931", "1932",
+    "1933", "1934", "1935", "1936"]
+  @@skip_words = ["Scratched", "Scratches", "Spot Removed", "Cleaning", "Cleaned", "Altered Color", "Damage",
+    "1936-S", "Whizzed", "1936-P", "1920-D", "1920 S", "1921-S"]
   @@coin_type = "Buffalo"
   @@aspect_filters = [ {:Certification => "NGC"}, {:Certification => "PCGS"}]
 
